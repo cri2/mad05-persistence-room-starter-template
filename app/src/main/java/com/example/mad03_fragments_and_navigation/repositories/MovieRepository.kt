@@ -7,7 +7,7 @@ import com.example.mad03_fragments_and_navigation.models.Movie
 class MovieRepository(private val movieDao: MovieDao) {
 
 
-    suspend fun addMovie(movie: Movie){
+    suspend fun createMovie(movie: Movie){
         movieDao.createMovie(movie)
     }
 
