@@ -1,9 +1,28 @@
 package com.example.mad03_fragments_and_navigation.repositories
 
+import androidx.lifecycle.LiveData
 import com.example.mad03_fragments_and_navigation.database.MovieDao
+import com.example.mad03_fragments_and_navigation.models.Movie
 
 class MovieRepository(private val movieDao: MovieDao) {
-    // TODO implement me
+
+    val getAll: LiveData<List<Movie>> = movieDao.getAll()
+
+    fun addMovie(movie: Movie){
+        movieDao.createMovie(movie)
+    }
+
+    fun updateMovie(movie: Movie){
+        movieDao.updateMovie(movie)
+    }
+
+    fun deleteMovie(movie: Movie){
+        movieDao.deleteMovie(movie)
+    }
+
+    fun clearAll(){
+        movieDao.clearTable()
+    }
 
     companion object {
         // For Singleton instantiation
