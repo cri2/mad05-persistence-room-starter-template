@@ -44,7 +44,7 @@ data class MovieStore(val myMovies: MutableList<Movie> = mutableListOf()){
             list.add(movie1)
             list.add(movie2)
             list.add(movie3)
-            
+
             return list
         }
     }

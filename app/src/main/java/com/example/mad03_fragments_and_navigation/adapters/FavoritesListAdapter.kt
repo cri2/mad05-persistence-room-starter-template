@@ -13,7 +13,7 @@ class FavoritesListAdapter(
     private var dataSet: List<Movie>,
     val onDeleteClicked: (Long) -> Unit,
     val onEditClicked: (Movie) -> Unit
-    ): RecyclerView.Adapter<FavoritesListAdapter.ViewHolder>() {
+): RecyclerView.Adapter<FavoritesListAdapter.ViewHolder>() {
 
     /**
      * If data set needs to be updated, call me!

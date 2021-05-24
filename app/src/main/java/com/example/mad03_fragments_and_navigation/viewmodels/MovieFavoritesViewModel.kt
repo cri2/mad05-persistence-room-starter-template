@@ -18,14 +18,16 @@ class MovieFavoritesViewModel (
     private val repository: MovieRepository
 
     init {
-        val movieDao = AppDatabase.getDatabase(app).movieDao()
+        val movieDao = AppDatabase.getDatabase(
+            app
+        ).movieDao()
         repository = MovieRepository(movieDao)
         getAll = repository.getAll
     }
 
-    fun createMovie(movie: Movie){
+    fun addMovie(movie: Movie){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.createMovie(movie)
+            repository.addMovie(movie)
         }
     }
 

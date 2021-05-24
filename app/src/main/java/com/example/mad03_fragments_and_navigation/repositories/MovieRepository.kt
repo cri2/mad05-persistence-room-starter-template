@@ -6,9 +6,10 @@ import com.example.mad03_fragments_and_navigation.models.Movie
 
 class MovieRepository(private val movieDao: MovieDao) {
 
+    val getAll: LiveData<List<Movie>> = movieDao.getAll()
 
-    suspend fun createMovie(movie: Movie){
-        movieDao.createMovie(movie)
+    suspend fun addMovie(movie: Movie){
+        movieDao.addMovie(movie)
     }
 
     suspend fun updateMovie(movie: Movie){
@@ -22,8 +23,6 @@ class MovieRepository(private val movieDao: MovieDao) {
     suspend fun clearAll(){
         movieDao.clearTable()
     }
-
-    val getAll: LiveData<List<Movie>> = movieDao.getAll()
 
     companion object {
         // For Singleton instantiation

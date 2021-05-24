@@ -1,5 +1,6 @@
 package com.example.mad03_fragments_and_navigation
 
+import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,11 +10,17 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.mad03_fragments_and_navigation.databinding.ActivityMainBinding
+import com.example.mad03_fragments_and_navigation.viewmodels.MovieFavoritesViewModel
+import com.example.mad03_fragments_and_navigation.viewmodels.MovieFavoritesViewModelFactory
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var binding: ActivityMainBinding
+
+    companion object{
+        lateinit var app: Application
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +36,12 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
 
         NavigationUI.setupWithNavController(binding.navView, navController)
+
+        // Create Database
+        val movieDBFactory = MovieFavoritesViewModelFactory(this.application)
+        movieDBFactory.create(MovieFavoritesViewModel::class.java)
+
+        app = application
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -64,4 +77,5 @@ class MainActivity : AppCompatActivity() {
         Log.i("MainActivity", "I am in onRestart")
         super.onRestart()
     }
+
 }

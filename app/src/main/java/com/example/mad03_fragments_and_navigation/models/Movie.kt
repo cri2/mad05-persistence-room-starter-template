@@ -5,7 +5,7 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.example.mad03_fragments_and_navigation.R
 
-@Entity (tableName = "movie_data")
+@Entity(tableName = "movie_table")
 data class Movie(
     var title: String = "",
     var description: String = ""
@@ -20,7 +20,6 @@ data class Movie(
     var note: String = ""
     var imageId: Int = R.drawable.no_preview_3
 
-    // Ignore non-basic data types
     @Ignore
     var actors: MutableList<String> = mutableListOf()
     @Ignore
