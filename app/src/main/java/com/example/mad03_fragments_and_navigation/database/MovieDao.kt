@@ -8,7 +8,9 @@ import com.example.mad03_fragments_and_navigation.models.Movie
 @Dao
 interface MovieDao {
 
-        @Insert(onConflict = OnConflictStrategy.IGNORE)
+        // functions according template; suspend for coroutines
+
+        @Insert
         suspend fun addMovie(part: Movie)
 
         @Update

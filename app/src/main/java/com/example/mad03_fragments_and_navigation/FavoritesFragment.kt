@@ -67,7 +67,8 @@ class FavoritesFragment : Fragment() {
 
         // Set up the buttons
         builder.setPositiveButton("OK") { _, _ ->
-            // Here you get get input text from the Edittext
+
+            // note function
             val mText = input.text.toString()
             movieObj.note = mText
             databaseViewModel.updateMovie(movieObj)

@@ -12,7 +12,7 @@ abstract class AppDatabase: RoomDatabase() {
     abstract fun movieDao(): MovieDao
 
     companion object {
-        @Volatile
+        @Volatile // never cached
         private var INSTANCE: AppDatabase? = null
 
         fun getDatabase(context: Context): AppDatabase{

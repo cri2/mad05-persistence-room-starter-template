@@ -20,6 +20,7 @@ data class Movie(
     var note: String = ""
     var imageId: Int = R.drawable.no_preview_3
 
+    // ignore non basic types
     @Ignore
     var actors: MutableList<String> = mutableListOf()
     @Ignore
